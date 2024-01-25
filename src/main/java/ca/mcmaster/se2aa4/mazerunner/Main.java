@@ -30,20 +30,36 @@ public class Main {
         logger.info("** Starting Maze Runner");
         try {
             cmd = parser.parse(options, args);
-            String inputFilePath = cmd.getOptionValue("input");
 
-            logger.info("**** Reading the maze from file " + inputFilePath);
-            BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                for (int idx = 0; idx < line.length(); idx++) {
-                    if (line.charAt(idx) == '#') {
-                        logger.trace("WALL ");
-                    } else if (line.charAt(idx) == ' ') {
-                        logger.trace("PASS ");
+            if (cmd.hasOption("i")) {
+                String inputFilePath = cmd.getOptionValue("i");
+                logger.info("**** Reading the maze from file " + inputFilePath);
+
+                MazeReader mazeReader = new MazeReader(inputFilePath);
+                char[][] maze = mazeReader.getMaze();
+
+                // Logging MazeReader
+                logger.info("**** Testing MazeReader.java ****");
+                for (char[] row : maze) {
+                    for (char cell : row) {
+                        logger.info(cell == '0' ? "PASS " : "WALL ");
                     }
+                    logger.info(System.lineSeparator());
                 }
-                logger.info(System.lineSeparator());
+                logger.info("**** Testing Ended of MazeRunner.java ****");
+
+                BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    for (int idx = 0; idx < line.length(); idx++) {
+                        if (line.charAt(idx) == '#') {
+                            logger.trace("WALL ");
+                        } else if (line.charAt(idx) == ' ') {
+                            logger.trace("PASS ");
+                        }
+                    }
+                    logger.trace(System.lineSeparator());
+                }
             }
         } catch (Exception e) {
             logger.error("/!\\ An error has occured /!\\");
