@@ -21,7 +21,7 @@ public class MazeReader {
         // Find dimension of array
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
-            
+
             while ((line = reader.readLine()) != null) {
                 height++;
                 if (line.length() > width) {
