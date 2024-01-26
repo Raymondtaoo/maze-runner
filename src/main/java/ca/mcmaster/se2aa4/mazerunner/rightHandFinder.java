@@ -34,7 +34,7 @@ public class RightHandFinder {
     public String findPath() {
 
         StringBuilder path = new StringBuilder();
-        int stepCounter = 0;
+        // int stepCounter = 0;
 
         while (!exit()) {
             // logger.trace("Step: " + stepCounter + ", Current Position: (X=" + currX + ", Y=" + currY
@@ -63,7 +63,7 @@ public class RightHandFinder {
                 path.append("F");
                 // logger.trace("Turned Around and Moved Forward");
             }
-            stepCounter++;
+            // stepCounter++;
         }
         return path.toString();
     }

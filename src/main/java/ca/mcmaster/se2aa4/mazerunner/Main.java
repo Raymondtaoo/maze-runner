@@ -1,7 +1,7 @@
 package ca.mcmaster.se2aa4.mazerunner;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+// import java.io.BufferedReader;
+// import java.io.FileReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.config.Configurator;
@@ -63,7 +63,17 @@ public class Main {
                 // logger.info("**** Testing Ended of MazeRunner.java ****");
 
                 if (cmd.hasOption("p")) {
-                    // Path validation logic
+                    String validatePath = cmd.getOptionValue("p");
+                    logger.info("**** Validating path ****");
+
+                    PathValidator pathValidator = new PathValidator(maze);
+                    boolean isValid = pathValidator.validatePath(validatePath);
+
+                    if (isValid) {
+                        logger.info("Correct path");
+                    } else {
+                        logger.info("Incorrect path");
+                    }
                 } else {
                     logger.info("**** Computing path ****");
                     // Path finding logic
