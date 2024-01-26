@@ -37,7 +37,7 @@ public class RightHandFinder {
         // int stepCounter = 0;
 
         while (!exit()) {
-            // logger.trace("Step: " + stepCounter + ", Current Position: (X=" + currX + ", Y=" + currY
+            // logger.trace("Step: " + stepCounter + ", Current Pos: (X=" + currX + ", Y=" + currY
             //         + "), Direction: " + currDir);
 
             if (canMoveRight()) {
