@@ -17,7 +17,7 @@ public class TremauxFinder {
 
     public TremauxFinder(char[][] maze) {
         this.maze = maze;
-        // this.visited =
+        // this.visited = 
         this.currX = 0;
         this.currY = findEntry();
         this.currDir = Direction.EAST;
