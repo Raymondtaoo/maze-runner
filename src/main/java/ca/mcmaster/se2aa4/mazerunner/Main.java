@@ -25,18 +25,18 @@ public class Main {
         input.setRequired(true);
         options.addOption(input);
         
-        Option pathOption = new Option("p", "path", true, "Path to validate");
+        Option pathOption = new Option("p", "path", true, "path verification mode");
         pathOption.setRequired(false);
         options.addOption(pathOption);
 
-        Option methodOption = new Option("m", "method", true, "Algorithm for path finding (tremaux, righthand)")
+        Option methodOption = new Option("m", "method", true, "specifies which path computation method to use (tremaux, righthand)");
         pathOption.setRequired(false);
         options.addOption(methodOption);
 
         CommandLineParser parser = new DefaultParser();
         CommandLine cmd;
 
-        logger.info("** Starting Maze Runner");
+        logger.info("** Starting Maze Runner **");
         try {
             cmd = parser.parse(options, args);
 
@@ -65,11 +65,14 @@ public class Main {
                 if (cmd.hasOption("p")) {
                     // Path validation logic
                 } else {
+                    logger.info("**** Computing path ****");
                     // Path finding logic
                     if (mazeMethod.equals("tremaux")) {
                         // Tremaux logic
                     } else {
-                        // Righthand logic
+                        RightHandFinder rightHandFinder = new RightHandFinder(maze);
+                        String path = rightHandFinder.findPath();
+                        logger.info("Path Computed: " + path);
                     }
                 }
 
@@ -90,8 +93,6 @@ public class Main {
         } catch (Exception e) {
             logger.error("/!\\ An error has occured /!\\");
         }
-        logger.info("**** Computing path");
-        logger.info("PATH NOT COMPUTED");
-        logger.info("** End of MazeRunner");
+        logger.info("** End of MazeRunner **");
     }
 }
