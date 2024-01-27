@@ -2,10 +2,6 @@ package ca.mcmaster.se2aa4.mazerunner;
 
 public class TremauxFinder {
 
-    private enum Direction {
-        NORTH, EAST, SOUTH, WEST
-    }
-
     private enum Mark {
         UNVISITED, ONCE, TWICE
     }

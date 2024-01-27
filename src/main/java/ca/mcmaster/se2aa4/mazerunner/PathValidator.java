@@ -1,19 +1,15 @@
 package ca.mcmaster.se2aa4.mazerunner;
 
-// import org.apache.logging.log4j.LogManager;
-// import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class PathValidator {
 
-    // private static final Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
 
     private char[][] maze;
     private int currX, currY;
     private Direction currDir;
-
-    private enum Direction {
-        NORTH, EAST, SOUTH, WEST
-    }
 
     public PathValidator(char[][] maze) {
         this.maze = maze;
@@ -38,6 +34,7 @@ public class PathValidator {
                 return i;
             }
         }
+        logger.trace("Error: Entry point not found");
         return -1;
     }
 
@@ -108,37 +105,11 @@ public class PathValidator {
     }
 
     private void turnRight() {
-        switch (currDir) {
-            case NORTH:
-                currDir = Direction.EAST;
-                break;
-            case EAST:
-                currDir = Direction.SOUTH;
-                break;
-            case SOUTH:
-                currDir = Direction.WEST;
-                break;
-            case WEST:
-                currDir = Direction.NORTH;
-                break;
-        }
+        currDir = DirectionUtility.turnRight(currDir);
     }
 
     private void turnLeft() {
-        switch (currDir) {
-            case NORTH:
-                currDir = Direction.WEST;
-                break;
-            case WEST:
-                currDir = Direction.SOUTH;
-                break;
-            case SOUTH:
-                currDir = Direction.EAST;
-                break;
-            case EAST:
-                currDir = Direction.NORTH;
-                break;
-        }
+        currDir = DirectionUtility.turnLeft(currDir);
     }
 
     private void moveForward() {

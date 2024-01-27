@@ -1,15 +1,11 @@
 package ca.mcmaster.se2aa4.mazerunner;
 
-// import org.apache.logging.log4j.LogManager;
-// import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class RightHandFinder {
 
-    // private static final Logger logger = LogManager.getLogger();
-
-    private enum Direction {
-        NORTH, EAST, SOUTH, WEST
-    }
+    private static final Logger logger = LogManager.getLogger();
 
     private char[][] maze;
     private int currX, currY;
@@ -28,6 +24,7 @@ public class RightHandFinder {
                 return i;
             }
         }
+        logger.trace("Error: Entry point not found");
         return -1; // Entry is all wall D:
     }
 
@@ -101,20 +98,7 @@ public class RightHandFinder {
     }
 
     private void turnRight() {        // Turning to the right of current direction
-        switch (currDir) {
-            case NORTH:
-                currDir = Direction.EAST;
-                break;
-            case EAST:
-                currDir = Direction.SOUTH;
-                break;
-            case SOUTH:
-                currDir = Direction.WEST;
-                break;
-            case WEST:
-                currDir = Direction.NORTH;
-                break;
-        }
+        currDir = DirectionUtility.turnRight(currDir);
     }
 
     private boolean canMoveLeft() {
@@ -132,20 +116,7 @@ public class RightHandFinder {
     }
 
     private void turnLeft() {              // Opposite of turnRight!
-        switch (currDir) {
-            case NORTH:
-                currDir = Direction.WEST;
-                break;
-            case WEST:
-                currDir = Direction.SOUTH;
-                break;
-            case SOUTH:
-                currDir = Direction.EAST;
-                break;
-            case EAST:
-                currDir = Direction.NORTH;
-                break;
-        }
+        currDir = DirectionUtility.turnLeft(currDir);
     }
 
     private void moveForward() {
