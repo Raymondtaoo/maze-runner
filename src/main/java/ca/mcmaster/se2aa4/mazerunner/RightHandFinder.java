@@ -3,7 +3,7 @@ package ca.mcmaster.se2aa4.mazerunner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class RightHandFinder {
+public class RightHandFinder implements MazeNav {
 
     private static final Logger logger = LogManager.getLogger();
 
@@ -28,6 +28,7 @@ public class RightHandFinder {
         return -1; // Entry is all wall D:
     }
 
+    @Override
     public String findPath() {
 
         StringBuilder path = new StringBuilder();
@@ -97,7 +98,8 @@ public class RightHandFinder {
         return false;
     }
 
-    private void turnRight() {        // Turning to the right of current direction
+    @Override
+    public void turnRight() {        // Turning to the right of current direction
         currDir = DirectionUtility.turnRight(currDir);
     }
 
@@ -115,11 +117,13 @@ public class RightHandFinder {
         return false;
     }
 
-    private void turnLeft() {              // Opposite of turnRight!
+    @Override
+    public void turnLeft() {              // Opposite of turnRight!
         currDir = DirectionUtility.turnLeft(currDir);
     }
 
-    private void moveForward() {
+    @Override
+    public void moveForward() {
         switch (currDir) {
             case NORTH:
                 currY--;

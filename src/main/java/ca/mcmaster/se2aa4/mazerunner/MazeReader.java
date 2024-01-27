@@ -24,9 +24,7 @@ public class MazeReader {
 
             while ((line = reader.readLine()) != null) {
                 height++;
-                if (line.length() > width) {
-                    width = line.length();
-                }
+                width = line.length();
             }
         }
 

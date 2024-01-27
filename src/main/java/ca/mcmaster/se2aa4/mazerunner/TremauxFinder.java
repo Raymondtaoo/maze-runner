@@ -1,6 +1,6 @@
 package ca.mcmaster.se2aa4.mazerunner;
 
-public class TremauxFinder {
+public class TremauxFinder implements MazeNav {
 
     private enum Mark {
         UNVISITED, ONCE, TWICE
@@ -28,8 +28,9 @@ public class TremauxFinder {
         return -1; 
     }
 
-    // public String findPath() {
-    //     StringBuilder path = new StringBuilder();
+    @Override
+    public String findPath() {
+        StringBuilder path = new StringBuilder();
 
     //     while (!exit()) {
     //         markCurrent();
@@ -54,8 +55,23 @@ public class TremauxFinder {
     //             path.append("F");
     //         }
     //     }
-    //     return path.toString();
-    // }
+        return path.toString();
+    }
+
+    @Override
+    public void moveForward(){
+
+    }
+
+    @Override
+    public void turnRight(){
+
+    }
+
+    @Override
+    public void turnLeft(){
+
+    }
 
     // private void markCurrent() {
     //     // Update to visited of the current cell

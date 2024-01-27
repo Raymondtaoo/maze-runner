@@ -80,13 +80,13 @@ public class Main {
                     if (mazeMethod.equals("tremaux")) {
                         // Tremaux logic
                     } else {
-                        RightHandFinder rightHandFinder = new RightHandFinder(maze);
-                        String path = rightHandFinder.findPath();
+                        MazeNav rightHandNav = new RightHandFinder(maze);
+                        String path = rightHandNav.findPath();
                         logger.info("Path Computed: " + path);
                     }
                 }
 
-                // // OG Logger
+                // // Boilerplate Logger
                 // BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
                 // String line;
                 // while ((line = reader.readLine()) != null) {
