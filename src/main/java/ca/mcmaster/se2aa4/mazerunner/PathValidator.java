@@ -40,7 +40,7 @@ public class PathValidator {
 
     public boolean validatePath(String path) {
         path = canonPath(path); // Make sure it's canonical form
-        logger.trace(path);
+        // logger.trace(path);
 
         reset(); 
         if (tryValidation(path)) {
@@ -82,7 +82,7 @@ public class PathValidator {
             if (ch == ' '){
                 continue;
             } if (Character.isDigit(ch)) {
-                count = ch - '0';       // Convert char to int
+                count = count * 10 + (ch - '0');       // Convert char to int
             } else {
                 for (int i = 0; i < (count == 0 ? 1 : count); i++) {    // Append ch count times, if count is 0 append once
                     toCanonPath.append(ch);
