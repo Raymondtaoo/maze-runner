@@ -18,14 +18,14 @@ public class RightHandFinder implements MazeNav {
         this.currDir = Direction.EAST; // Assume entry is on West border
     }
 
-    private int findEntry() {
+    private int findEntry() throws IllegalStateException {
         for (int i = 0; i < maze.length; i++) {
             if (maze[i][0] == '0') { // Find path on West
                 return i;
             }
         }
         logger.trace("Error: Entry point not found");
-        return -1; // Entry is all wall D:
+        throw new IllegalStateException("NoPathFound"); // Entry is all wall D:
     }
 
     @Override
