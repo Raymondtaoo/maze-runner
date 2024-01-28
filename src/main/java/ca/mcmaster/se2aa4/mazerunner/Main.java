@@ -82,7 +82,8 @@ public class Main {
                     } else {
                         MazeNav rightHandNav = new RightHandFinder(maze);
                         String path = rightHandNav.findPath();
-                        logger.info("Path Computed: " + path);
+                        String factorizedPath = rightHandNav.factorizePath(path);
+                        logger.info("Path Computed: " + factorizedPath);
                     }
                 }
 

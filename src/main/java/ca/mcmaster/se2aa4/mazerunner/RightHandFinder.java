@@ -29,6 +29,32 @@ public class RightHandFinder implements MazeNav {
     }
 
     @Override
+    public String factorizePath(String path) {
+        StringBuilder factorizedPath = new StringBuilder();
+        int count = 1; // Init count for path chars
+
+        for (int i = 1; i < path.length(); i++){
+            if (path.charAt(i) == path.charAt(i - 1)){ 
+                count++; // Keep count of repeat char
+            } else {
+                if (count > 1) {
+                    factorizedPath.append(count);
+                }
+                factorizedPath.append(path.charAt(i - 1));
+
+                count = 1; // Reset count
+            }
+        }
+        // Last char of path logic
+        if (count > 1) {
+            factorizedPath.append(count);
+        }
+        factorizedPath.append(path.charAt(path.length() - 1));
+
+        return factorizedPath.toString();
+    }
+
+    @Override
     public String findPath() {
 
         StringBuilder path = new StringBuilder();
