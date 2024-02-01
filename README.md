@@ -1,4 +1,4 @@
-# Maze Runner - SFWRENG 2AA4 Assignment A1
+# Maze Runner
 
 ## Introduction
 
