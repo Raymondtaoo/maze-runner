@@ -31,9 +31,23 @@ java -jar target/mazerunner.jar [OPTIONS]
 
 ## Examples
 ```
-java -jar target/mazerunner.jar -i ./examples/straight.maz.txt
-java -jar target/mazerunner.jar -i ./examples/straight.maz.txt -p 4F
-java -jar target/mazerunner.jar -i ./examples/straight.maz.txt -p 3F
+java -jar target/mazerunner.jar -i ./examples/direct.maz.txt
+
+[INFO ] Main ** Starting Maze Runner **
+[INFO ] Main **** Reading the maze from file ./examples/direct.maz.txt
+[INFO ] Main **** Computing path ****
+[INFO ] Main Path Computed: FR2FL3FRFLFRFL2F
+[INFO ] Main ** End of MazeRunner **
+```
+```
+java -jar target/mazerunner.jar -i ./examples/direct.maz.txt -p FR2FL3FRFLFRFL2F
+
+[INFO ] Main Correct path
+```
+```
+java -jar target/mazerunner.jar -i ./examples/direct.maz.txt -p FFF
+
+[INFO ] Main Incorrect path
 ```
 
 ## Implementation Details
