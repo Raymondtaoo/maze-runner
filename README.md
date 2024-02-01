@@ -25,9 +25,9 @@ java -jar target/mazerunner.jar [OPTIONS]
 
 ## Command Line Arguments
 
-- -i MAZE_FILE: Specify the maze file to use.
-- -p PATH_SEQUENCE: Activate path verification mode.
-- -m {tremaux, righthand}: Choose the path computation method (default: righthand).
+- `-i MAZE_FILE`: Specify the maze file to use.
+- `-p PATH_SEQUENCE`: Activate path verification mode.
+- `-m {tremaux, righthand}`: Choose the path computation method (default: righthand).
 
 ## Examples
 ```
@@ -40,11 +40,11 @@ java -jar target/mazerunner.jar -i ./examples/straight.maz.txt -p 3F
 
 This project is implemented in Java, utilizing principles of object-oriented programming and design patterns. Key components include:
 
-- Main: The entry point of the application, handling command-line arguments and coordinating the maze exploration process.
-- MazeReader: Responsible for reading the maze from a file and converting it into a usable data structure.
-- PathValidator: Checks if a given path is valid for the specified maze.
-- RightHandFinder: Implements the right-hand rule algorithm for maze navigation.
-- DirectionUtility: Provides utility functions for direction manipulation.
+- `Main`: The entry point of the application, handling command-line arguments and coordinating the maze exploration process.
+- `MazeReader`: Responsible for reading the maze from a file and converting it into a usable data structure.
+- `PathValidator`: Checks if a given path is valid for the specified maze.
+- `RightHandFinder`: Implements the right-hand rule algorithm for maze navigation.
+- `DirectionUtility`: Provides utility functions for direction manipulation.
 
 ## Dependencies
 
